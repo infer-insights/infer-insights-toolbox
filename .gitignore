@@ -216,3 +216,80 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# ==========================================
+# 🔐 Additional config recommended by gemini
+# ==========================================
+
+# ==========================================
+# 🔐 SECURITY & CREDENTIALS (MOST IMPORTANT)
+# ==========================================
+# Never commit your database passwords, tokens, or API keys
+.env
+.env.local
+.env.*
+config.ini
+secrets.json
+*.pem
+*.key
+
+# ==========================================
+# 🐍 PYTHON & DATA SCIENCE (EXTENDED)
+# ==========================================
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache and compilation files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Data Files (prevents accidentally pushing large datasets to GitHub)
+*.csv
+*.xlsx
+*.xlsm
+*.parquet
+*.pickle
+*.pkl
+*.db
+*.sqlite
+
+# ==========================================
+# 📊 POWER BI (STRICT Snippet-Only Mode)
+# ==========================================
+# Excludes heavy binary dashboard files; use live App links in README instead
+*.pbix
+*.pbit
+*.pbix.user
+*.pbi
+*.pbip
+*.bdl
+
+# Microsoft Office temporary owner files (created when a file is open)
+~$*
+.~$*
+*.tmp
+
+# ==========================================
+# 🖥️ OPERATING SYSTEMS & LOGS
+# ==========================================
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows system files
+Thumbs.db
+Ehthumbs.db
+desktop.ini
+
+# Application logs
+*.log
+logs/
+
