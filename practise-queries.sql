@@ -8,7 +8,7 @@ Catalog: T-SQL
 
 -- #1. vending machines utilization limited to machines with turnover in selected city
 
-use BCOverview_Vending;
+use BCOverview_VENDING;
 
 WITH VOL_COUNT_DIS AS
 (
@@ -42,10 +42,12 @@ ORDER BY
 	v.VOLUME_DIS DESC;
 
 
-    use BCOverview_VENDING;
+
 
 
 -- #2. most popular vending machines locations utilization limited to selected year, network, city and service type
+
+use BCOverview_VENDING;
 
 WITH VOL_COUNT_DIS AS
 (
@@ -62,7 +64,7 @@ GROUP BY
 	VEND_ID, LEFT(CONVERT(VARCHAR(10), DATA_SP, 23), 4)
 ),
 
---rank calculation in second cte
+--rank calculation 
 
 RANKED_VEND AS
 (
