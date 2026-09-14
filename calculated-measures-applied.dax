@@ -1,0 +1,51 @@
+/*
+==================================================
+PROJECT: PBI Measures DAX syntax and calculation logic
+Date: 2026
+
+DAX Practise Approach and code examples:
+1. Product related services (PRS) category dedicated measure and naming convention approach.  
+2. 
+==================================================
+*/
+
+
+--#1: Volume Summary of applicatble data for sales with product related services category only
+    --Measure Naming convention details: 
+    --"This Year Volume of products, sold with services from selected data source [in qubic meters]"
+ 
+TY w s. "M3"Ex =
+
+--First step: 
+--RANGE SELECTION: not in food offer and other not fitting range (products only - not services) 
+    VAR _1_RangeFilterTable = 
+        FILTER(
+            KEEPFILTERS(VALUES('1_MSFR HFO TYex'[HFO_TY_HFBex])),
+            NOT('1_MSFR HFO TYex'[HFO_TY_HFBex] IN {
+                "Category Number – Food",
+                "000 – Services", 
+                "001 – Other"
+            })
+        )
+
+--Second step: 
+--FULFILLMENT TYPE: applicable to the case, keep filters still apply  
+    VAR _2_not_c_and_carry = 
+        FILTER(
+            KEEPFILTERS(VALUES('1_MSFR HFO TYex'[HFO_TY_Flow Level 2ex])),
+            NOT(
+                '1_MSFR HFO TYex'[HFO_TY_Flow Level 000 ex] IN {
+                    "Ex. Cash & Carry Flow",
+                    "Ex. Picking Only Handout Flow"
+                }
+            )
+        )
+
+    VAR _TY_LY_M3_Cr_Net_w_s = CALCULATE(
+        [TY M3 LOC Cr Net ex],
+        _1_HFBFilterTable,
+        _2_not_c_and_carry
+    )
+
+RETURN
+    _TY_LY_M3_Cr_Net_w_s 

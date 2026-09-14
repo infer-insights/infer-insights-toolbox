@@ -5,12 +5,12 @@ PROJECT: POWER QUERY SOLUTIONS APPROACH EXAMPLES
 Date: 2026
 
 M Practise Approach and code examples:
-1. Multi File transformation in single power query step
+1. Multi File transformation in single ETL step, load time optimization
 2. 
 ==================================================
 */
 
---#1. goal: multi source file integration in one step and sharepoint refresh decrease 
+--#1: multi source file integration in one ETL PQ step, sharepoint data refresh decrease 
 
 let
 --// Static site URL (refreshable)
@@ -18,7 +18,7 @@ let
 --// Get all files from SharePoint
     AllFiles = SharePoint.Files(SiteURL, [ApiVersion = 15]),
  
---// Filter immediately to reduce load
+--// Filter sharepoint immediately to reduce load
     FinalFolderFiles = Table.SelectRows(AllFiles, each 
         Text.Contains([Folder Path], "Dedicated_Folder/Subfolder/FY26/") and 
         Text.EndsWith([Name], ".xlsx")
@@ -30,9 +30,9 @@ let
 
 --// Define file list and CATEGORIESs as records with consistent field names
     FileList = {
-        [fileName = "FY26 Category 1.xlsx", lvl1 = "Category_One"],
-        [fileName = "FY26 Category 2.xlsx", lvl1 = "Category_Two"],
-        [fileName = "FY26 Category Next.xlsx", lvl1 = "Category_Next"]
+        [fileName = "FY26 Product Related Services Category One.xlsx", lvl1 = "PRS_Category_One"],
+        [fileName = "FY26_PRS_Cat2.xlsx", lvl1 = "PRS_Two"],
+        [fileName = "FY26_PRS_Cat3.xlsx", lvl1 = "PRS_Next"]
         		},
 
 SheetNames = {"IncludedSheetName1",//"ExcludedSheetName1b","ExcludedSheetName1c",
@@ -74,6 +74,6 @@ SheetNames = {"IncludedSheetName1",//"ExcludedSheetName1b","ExcludedSheetName1c"
 --// Further Power Query M transformations of compbined files 
 
     #"Removed Columns1" = Table.RemoveColumns(Output,{"Column1", "Column2", "ColumnNext"}),
-    #"FinalStep" = Table.TransformColumnTypes(#"Grouped Rows",{{"Monthly_FC_FFO_Key", type text}})
+    #"FinalStepCombined" = Table.TransformColumnTypes(#"Grouped Rows",{{"Monthly_FC_FFO_Key", type text}})
 in
-    #"FinalStep"
+    #"FinalStepCombined"
