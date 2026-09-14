@@ -1,6 +1,6 @@
 # Data Extraction & Analytics Engineering Toolbox
 
-This repository is a collection of code templates and reference patterns for data extraction, transformation, and measure design — spanning DAX, M (Power Query), SQL, and Snowflake. 
+This repository is a collection of code templates and reference patterns for data extraction, transformation, and measure design — spanning DAX, M, SQL and corporate grade analytics environment - Snowflake. 
 Rather than solving one specific business case, it documents the underlying engineering practices and how logic is organized across each layer of an analytics pipeline.
 
 ---

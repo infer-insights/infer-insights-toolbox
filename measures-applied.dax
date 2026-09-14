@@ -3,7 +3,7 @@
 PROJECT: PBI Dax Measures syntax and calculation logic
 Date: 2026
 
-M Practise Approach and code examples:
+Structured approach and code examples:
 1. Calculation limited to selected category.
 2. Category based calc adjusted with variable. 
 3. Product related services (PRS) category dedicated measure and naming convention approach.
