@@ -4,13 +4,56 @@ PROJECT: PBI Dax Measures syntax and calculation logic
 Date: 2026
 
 M Practise Approach and code examples:
-1. Product related services (PRS) category dedicated measure and naming convention approach.  
-2. 
+1. Calculation limited to selected category.
+2. Category based calc adjusted with variable. 
+3. Product related services (PRS) category dedicated measure and naming convention approach.
 ==================================================
 */
 
+--#1: Calculation limited to selected category.
 
---#1: Volume Summary of applicatble data for sales with product related services category only
+LOC Cr Net, Category = 
+    VAR __1_PLMarketAreaFilterTable = 
+		TREATAS({"Region"},'Market'[Region])
+	VAR __2_FYFilterTable = 
+		TREATAS({"FY2026"},'Time Period'[Fiscal Year])
+	VAR __3_Category = 
+        TREATAS({"SelectedCategory"},'Sales_hierarchy'[CategoryTable])
+    VAR _LOC_Cr_Net_Category = CALCULATE(
+        [Sales Created Net],
+		__1_PLMarketAreaFilterTable,
+		__2_FYFilterTable,
+        __3_Category
+    )
+    RETURN
+	_LOC_Cr_Net_Category
+
+
+--#2: Category based calc adjustment
+
+Qty Cr Net, Adjusted = 
+VAR _CategoryShare = [NonStandardCategoryAdj]
+VAR _Qty_Cr_Net_Adj = 
+    SUMX(
+        VALUES('Category_hierarchy'[CategoryMap]),
+        SWITCH(
+            TRUE(),
+            'Category_hierarchy'[CategoryMap] = "Category_1", [LY Qty Created Net],
+            'Category_hierarchy'[CategoryMap] = "Category_2", [LY Qty Created Net],
+            'Category_hierarchy'[CategoryMap] = "Category_3", [LY Qty Cr Net, Cat Total] * _Cat3_ShareAdjusted,
+            'Category_hierarchy'[CategoryMap] = "Category_4", [LY Qty Cr Net, Cat Total] * _Cat4_ShareAdjusted,
+            0
+        )
+    )
+RETURN
+    IF(
+        ISBLANK(_Qty_Cr_Net_Adj),
+        0,
+        _Qty_Cr_Net_Adj
+    )
+
+
+--#2: Volume Summary of applicatble data for sales with PRS category only
     --Measure Naming convention details: 
     --"This Year Volume of products, sold with services from selected data source [in qubic meters]"
  

@@ -1,6 +1,6 @@
 /*
 ==================================================
-PROJECT: SNOWFLAKE HANDS ON OPEN PRACTISE
+PROJECT: SNOWFLAKE BADGES HANDS ON PRACTISE
 Date: Sep 2026
 
 Environment Practise Best Practise and code examples:
@@ -10,7 +10,7 @@ Environment Practise Best Practise and code examples:
 */
 
 --Decrease warehouse standby acticity and auto scalling for sql code cost optimisation
- 
+
 -- Step A: Time travel history limit
 ALTER ACCOUNT SET DATA_RETENTION_TIME_IN_DAYS = 1;
 -- Step B: Wh acticity limit to 60s
