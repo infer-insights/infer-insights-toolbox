@@ -13,7 +13,7 @@ Patterns for extracting data and pre-calculating measures directly at the SQL la
 ### 📄[02-power-query-etl-lib.m](./02-power-query-etl-lib.pq) — Power Query / ETL
 Examples of cleaning, shaping, and combining data from multiple source systems before it reaches the data model.
 
-### 📄[03-measures-applied.dax](03-measures-applied.dax) — Measures & Analytics
+### 📄[03-measures-applied.dax](./03-measures-applied.dax) — Measures & Analytics
 DAX patterns focused on scalable calculation design. The emphasis is on clear, self-explanatory naming so logic stays maintainable as business rules grow more complex.
 
 ### 📄[04-snowflake-memo.sql](./04-snowflake-memo.sql) — Cloud Data Warehousing
