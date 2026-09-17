@@ -1,12 +1,15 @@
 /*
 ==================================================
-PROJECT: SNOWFLAKE BADGES HANDS ON PRACTISE
-Date: Sep 2026
-Completed: Badge 1 - Data Warehousing Workshop (2026-09-16)
+PROJECT: SNOWFLAKE HANDS ON PRACTISE
 
-Environment Practise Best Practise and code examples:
+### Achievements:
+Badge One - Data Warehousing Workshop [link](https://achieve.snowflake.com/d0146fd6-5654-4a80-b788-73e5968cb30e#acc.2b4mRroM) 
+--total credist used for all excercises in the Bdg1 labs: $19.96
+
+
+### Environment Practise Best Practise and code examples:
 1. Warehouse Cost Optimization
-2. Online resources worth remembering
+2. Mentioned resources
 ==================================================
 */
 
