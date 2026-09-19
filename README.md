@@ -20,7 +20,7 @@ DAX patterns focused on scalable calculation design. The emphasis is on clear, s
 Exploring the Snowflake capabilities as corporate cloud data platform, environment structure, role-based access and data governance fundamentals.
 
 ### 📄[05-python-in-progress.md](./05-python-in-progress.md) — Data, ETL and LLM Ops basics
-Building foundations, while documenting baby steps and milestones for integrating the languege into my technology stack. 
+Building foundations, while documenting baby steps and milestones for integrating the languege into my technology stack.
 
 ---
 
