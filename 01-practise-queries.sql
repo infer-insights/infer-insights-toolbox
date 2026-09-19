@@ -2,11 +2,15 @@
 /*
 ============================================================
 SQL Toolbox - Examples of applied solutions
-Catalog: T-SQL
+
+
+### Environment Best Practise and code examples:
+1. T-SQL Examples
+2. Hands on challenge with "stratascratch.com" sql path in progress (14%)
 ============================================================
 */
 
--- #1. vending machines utilization limited to machines with turnover in selected city
+-- #1_001. vending machines utilization limited to machines with turnover in selected city
 
 use BCOverview_VENDING;
 WITH VOL_COUNT_DIS AS
@@ -38,7 +42,7 @@ GROUP BY
 ORDER BY
 	v.VOLUME_DIS DESC;
 
--- #2. most popular vending machines locations utilization limited to selected year, network, city and service type
+-- #1_002. most popular vending machines locations utilization limited to selected year, network, city and service type
 
 use BCOverview_VENDING;
 WITH VOL_COUNT_DIS AS

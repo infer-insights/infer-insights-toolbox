@@ -17,7 +17,10 @@ Examples of cleaning, shaping, and combining data from multiple source systems b
 DAX patterns focused on scalable calculation design. The emphasis is on clear, self-explanatory naming so logic stays maintainable as business rules grow more complex.
 
 ### 📄[04-snowflake-memo.sql](./04-snowflake-memo.sql) — Cloud Data Warehousing
-Exploring the Snowflake capabilities as corporate cloud data platform, environment structure, role-based access and data governance fundamentals. 
+Exploring the Snowflake capabilities as corporate cloud data platform, environment structure, role-based access and data governance fundamentals.
+
+### 📄[05-python-in-progress.md](./05-python-in-progress.md) — Data, ETL and LLM Ops basics
+Building foundations, while documenting baby steps and milestones for integrating the languege into my technology stack. 
 
 ---
 
