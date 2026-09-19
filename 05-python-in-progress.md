@@ -1,11 +1,11 @@
 **"Every complex architecture begins with a single line of clean code."**
 
 ==================================================
-### Data Stack Integration with Python. 
+PROJECT: Data Stack Integration with Python. 
 
 
 
-### Learning progress, best practices and code examples:
+*### Learning progress, best practices and code examples:
 1. Core syntax, Python data structures and code best practices.
 2. Hands-on challenges with the "stratascratch.com" Python learning path started (6%).
 ==================================================
