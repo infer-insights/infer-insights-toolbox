@@ -1,7 +1,5 @@
-**"Every complex architecture begins with a single line of clean code."**
-""
 ==================================================
-
+##"Every complex architecture begins with a single line of clean code."
 PROJECT: Data Stack Integration with Python 
 
 
@@ -13,10 +11,8 @@ Learning progress, best practices and code examples:
 3. Training: Hands-on challenge with "stratascratch.com" Python path with Pandas library, progress: (8% completed).
     - #direct link to the training:
     - https://www.stratascratch.com/learn/comprehensive-python
-
 ==================================================
 
-"""""
 1.001 
     # "code is read much more often than it is written", “readability counts”
   - Official PEP 8 coding style guidelines and industry standards for clean Python code:
