@@ -11,7 +11,8 @@ Learning progress, best practices and code examples:
     - https://github.com/Pierian-Data/Complete-Python-3-Bootcamp.git
 3. Training: Hands-on challenge with "stratascratch.com" Python path with Pandas library, progress: (8% completed).
     - #direct link to the training:
-    - https://www.stratascratch.com/learn/comprehensive-python    
+    - https://www.stratascratch.com/learn/comprehensive-python  
+
 ==================================================
 
 1.001 
@@ -31,7 +32,7 @@ Learning progress, best practices and code examples:
   - df.info() #columns, types, non-null counts
   - dtype strings (object in pandas)
   - df.describe() #numeric columns summary, df.describe(include='all')
-3.002 
+3.002  
     # working with columns
   - df.rename(columns={
       "first_col": "first col descr",
@@ -47,7 +48,7 @@ Learning progress, best practices and code examples:
   - df['col'].unique() #NumPy array of unique val
   - dtypes #object, int64, float64, datetime64, bool
   --# numeric - carefull with "N/A" or "$1,200"
-3.003 
+3.003  
     # filtering
   - condition =  df["col"] == "object", result syntax: df[condition] #boolean indexing  
   - single line syntax: df[df["col"] == "object"]
@@ -57,7 +58,7 @@ Learning progress, best practices and code examples:
   - df["name"].str.lower().str.startswith("object") # case sensitive handling
   - df[df['text'].str.contains(".", regex=False)] #handling: "." any character, "$" - string end
   - multi condition: df[(condition1) & (condition2)],  and: "&", or: "|", not "~"
-3.006
+3.006  
     # combining conditions
 
 
