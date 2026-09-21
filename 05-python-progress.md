@@ -5,7 +5,8 @@ PROJECT: Data Stack Integration with Python
 
 
 Learning progress, best practices and code examples:
-1. Syntax, data structures, resources and code best practices.>2. Training: The Complete Python Bootcamp From Zero to Hero in Python, progress: (26 of 197 completed)
+1. Syntax, data structures, resources and code best practices.  
+2. Training: The Complete Python Bootcamp From Zero to Hero in Python, progress: (26 of 197 completed)
   - #official repositories provided by the course instructor
   - https://github.com/Pierian-Data/Complete-Python-3-Bootcamp.git
 3. Training: Hands-on challenge with "stratascratch.com" Python path with Pandas library, progress: (8% completed).
