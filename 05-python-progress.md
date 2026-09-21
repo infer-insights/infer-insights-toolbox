@@ -1,5 +1,6 @@
 ==================================================
-##"Every complex architecture begins with a single line of clean code."
+
+"Every complex architecture begins with a single line of clean code."
 PROJECT: Data Stack Integration with Python 
 
 
