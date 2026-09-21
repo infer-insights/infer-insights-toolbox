@@ -7,11 +7,11 @@ Structured approach and code examples:
 1.001 selected category dedicated measure
 1.002 category calculation adjusted with variable 
 1.003 multi criteria measure calc with keeping filters active,
-      naming convention approac
+      naming convention approach
 ==================================================
 */
 
-/*
+
 1.001 
     // calculation limited to selected category
     // "LOC Cr Net, Cat" = "local currency created net sales, category_name".
