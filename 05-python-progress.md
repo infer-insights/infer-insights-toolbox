@@ -32,6 +32,7 @@ Learning progress, best practices and code examples:
   - df.info() #columns, types, non-null counts
   - dtype strings (object in pandas)
   - df.describe() #numeric columns summary, df.describe(include='all')
+
 3.002  
     # working with columns
   - df.rename(columns={
@@ -48,6 +49,7 @@ Learning progress, best practices and code examples:
   - df['col'].unique() #NumPy array of unique val
   - dtypes #object, int64, float64, datetime64, bool
   --# numeric - carefull with "N/A" or "$1,200"
+
 3.003  
     # filtering
   - condition =  df["col"] == "object", result syntax: df[condition] #boolean indexing  
@@ -58,6 +60,7 @@ Learning progress, best practices and code examples:
   - df["name"].str.lower().str.startswith("object") # case sensitive handling
   - df[df['text'].str.contains(".", regex=False)] #handling: "." any character, "$" - string end
   - multi condition: df[(condition1) & (condition2)],  and: "&", or: "|", not "~"
+
 3.006  
     # combining conditions
 
