@@ -4,91 +4,86 @@ PROJECT: PBI Dax Measures syntax and calculation logic
 Date: 2026
 
 Structured approach and code examples:
-1. Calculation limited to selected category.
-2. Category based calc adjusted with variable. 
-3. Product related services (PRS) category dedicated measure and naming convention approach.
+1.001 selected category dedicated measure
+1.002 category calculation adjusted with variable 
+1.003 multi criteria measure calc with keeping filters active,
+      naming convention approac
 ==================================================
 */
 
---#1: Calculation limited to selected category.
-
-LOC Cr Net, Category = 
-    VAR __1_PLMarketAreaFilterTable = 
-		TREATAS({"Region"},'Market'[Region])
-	VAR __2_FYFilterTable = 
-		TREATAS({"FY2026"},'Time Period'[Fiscal Year])
-	VAR __3_Category = 
-        TREATAS({"SelectedCategory"},'Sales_hierarchy'[CategoryTable])
-    VAR _LOC_Cr_Net_Category = CALCULATE(
-        [Sales Created Net],
-		__1_PLMarketAreaFilterTable,
-		__2_FYFilterTable,
-        __3_Category
-    )
-    RETURN
-	_LOC_Cr_Net_Category
-
-
---#2: Category based calc adjustment
-
-Qty Cr Net, Adjusted = 
-VAR _CategoryShare = [NonStandardCategoryAdj]
-VAR _Qty_Cr_Net_Adj = 
-    SUMX(
-        VALUES('Category_hierarchy'[CategoryMap]),
-        SWITCH(
-            TRUE(),
-            'Category_hierarchy'[CategoryMap] = "Category_1", [LY Qty Created Net],
-            'Category_hierarchy'[CategoryMap] = "Category_2", [LY Qty Created Net],
-            'Category_hierarchy'[CategoryMap] = "Category_3", [LY Qty Cr Net, Cat Total] * _Cat3_ShareAdjusted,
-            'Category_hierarchy'[CategoryMap] = "Category_4", [LY Qty Cr Net, Cat Total] * _Cat4_ShareAdjusted,
-            0
-        )
-    )
-RETURN
-    IF(
-        ISBLANK(_Qty_Cr_Net_Adj),
-        0,
-        _Qty_Cr_Net_Adj
-    )
-
-
---#2: Volume Summary of applicatble data for sales with PRS category only
-    --Measure Naming convention details: 
-    --"This Year Volume of products, sold with services from selected data source [in qubic meters]"
- 
-TY w s. "M3"Ex =
-
---First step: 
---RANGE SELECTION: not in food offer and other not fitting range (products only - not services) 
-    VAR _1_RangeFilterTable = 
-        FILTER(
-            KEEPFILTERS(VALUES('1_MSFR HFO TYex'[HFO_TY_HFBex])),
-            NOT('1_MSFR HFO TYex'[HFO_TY_HFBex] IN {
-                "Category Number – Food",
-                "000 – Services", 
-                "001 – Other"
-            })
-        )
-
---Second step: 
---FULFILLMENT TYPE: applicable to the case, keep filters still apply  
-    VAR _2_not_c_and_carry = 
+/*
+1.001 
+    // calculation limited to selected category
+    // "LOC Cr Net, Cat" = "local currency created net sales, category_name".
+      LOC Cr Net, Category = 
+          VAR __1_PLMarketAreaFilterTable = 
+              TREATAS({"Region"},'Market'[Region])
+          VAR __2_FYFilterTable = 
+              TREATAS({"FY2026"},'Time Period'[Fiscal Year])
+          VAR __3_Category = 
+              TREATAS({"SelectedCategory"},'Sales_hierarchy'[CategoryTable])
+          VAR _LOC_Cr_Net_Category = CALCULATE(
+              [Sales Created Net],
+              __1_PLMarketAreaFilterTable,
+              __2_FYFilterTable,
+              __3_Category
+          )
+          RETURN
+          _LOC_Cr_Net_Category
+1.002
+    // category based calc adjustment
+      Qty Cr Net, Adjusted = 
+      VAR _CategoryShare = [NonStandardCategoryAdj]
+      VAR _Qty_Cr_Net_Adj = 
+          SUMX(
+              VALUES('Category_hierarchy'[CategoryMap]),
+              SWITCH(
+                  TRUE(),
+                  'Category_hierarchy'[CategoryMap] = "Category_1", [LY Qty Created Net],
+                  'Category_hierarchy'[CategoryMap] = "Category_2", [LY Qty Created Net],
+    // calculation adjusted with variable share
+                  'Category_hierarchy'[CategoryMap] = "Category_3", [LY Qty Cr Net, Cat Total] * _Cat3_ShareAdjusted,
+                  'Category_hierarchy'[CategoryMap] = "Category_4", [LY Qty Cr Net, Cat Total] * _Cat4_ShareAdjusted,
+                  0
+              )
+          )
+      RETURN
+         IF(
+             ISBLANK(_Qty_Cr_Net_Adj),
+             0,
+             _Qty_Cr_Net_Adj
+         )
+1.003 
+    // volume calc of applicatble data for sales with PRS category only
+    // measure naming convention details: 
+    // "TY w s. 'M3'Ex"= "This Year Volume of products, sold with services from sel data source [qubic meters]"
+    // first step: range selection: not in food offer and other not fitting range (products only - not services) 
+        TY w s. 'M3'Ex =
+        VAR _1_RangeFilterTable = 
+            FILTER(
+                KEEPFILTERS(VALUES('1_MSFR HFO TYex'[HFO_TY_HFBex])),
+                NOT('1_MSFR HFO TYex'[HFO_TY_HFBex] IN {
+                    "Category Number – Food",
+                    "000 – Services", 
+                    "001 – Other"
+                })
+            )
+    // second step keep filters applied and keep "fulfillment type" selected
+        VAR _2_not_c_and_carry = 
         FILTER(
             KEEPFILTERS(VALUES('1_MSFR HFO TYex'[HFO_TY_Flow Level 2ex])),
             NOT(
-                '1_MSFR HFO TYex'[HFO_TY_Flow Level 000 ex] IN {
+                '1_MSFR HFO TYex'[HFO_TY_FF type] IN {
                     "Ex. Cash & Carry Flow",
                     "Ex. Picking Only Handout Flow"
                 }
             )
         )
-
-    VAR _TY_LY_M3_Cr_Net_w_s = CALCULATE(
-        [TY M3 LOC Cr Net ex],
-        _1_HFBFilterTable,
-        _2_not_c_and_carry
-    )
-
-RETURN
-    _TY_LY_M3_Cr_Net_w_s 
+        VAR _TY_M3_Cr_Net_w_s = CALCULATE(
+            [TY M3 LOC Cr Net ex],
+            _1_HFBFilterTable,
+            _2_not_c_and_carry
+        )
+        RETURN
+            _TY_M3_Cr_Net_w_s 
+*/

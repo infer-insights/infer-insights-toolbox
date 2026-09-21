@@ -5,82 +5,135 @@ SQL Toolbox - Examples of applied solutions
 
 
 ### Environment Best Practise and code examples:
-1. T-SQL Examples
-2. Hands on challenge with "stratascratch.com" sql path in progress (14%)
+1. T-SQL code examples 
+	1.001: active units machines selection
+	1.002: ranked retail unit with largest turnover selection
+2. Training: Hands on challenge with "stratascratch.com" sql path, progress: (17% completed)
+    - # direct link to the training
+    - https://www.stratascratch.com/learn/comprehensive-sql
 ============================================================
 */
 
--- #1_001. vending machines utilization limited to machines with turnover in selected city
+1.001: 
+	-- retail unit utilization limited to machines with turnover in selected city
+		use BCOverview_VENDING;
+		WITH VOL_COUNT_DIS AS
+		(
+		SELECT
+			VEND_ID,
+			COUNT(DISTINCT LP) AS VOLUME_DIS
+		FROM
+			UTILIZATION
+		GROUP BY
+			VEND_ID
+		)
+		SELECT
+			p.VEND_ID,
+			COUNT (DISTINCT p.VEND_ID) AS VEND_AUTO_ACTIVE_COUNT,
+			v.VOLUME_DIS
+		FROM	
+			VEND_TABLE p
+		INNER JOIN
+			VOL_COUNT_DIS v ON p.VEND_ID = v.VEND_ID
+		WHERE
+			p.NETWORK_TYPE = 'DUAL_PAYMENT' AND 
+			v.VOLUME_DIS > 0 AND
+			p.CITY = 'Example_City'
+		GROUP BY
+			p.VEND_ID,
+			v.VOLUME_DIS
+		ORDER BY
+			v.VOLUME_DIS DESC;
 
-use BCOverview_VENDING;
-WITH VOL_COUNT_DIS AS
-(
-SELECT
-	VEND_ID,
-	COUNT(DISTINCT LP) AS VOLUME_DIS
-FROM
-	UTILIZATION
-GROUP BY
-	VEND_ID
-)
+1.002: 
+	--most popular (top 10) vending machines locations utilization,
+	--limited to selected year, network, city and service type
+		use BCOverview_VENDING;
+		WITH VOL_COUNT_DIS AS
+		(
+		SELECT
+			VEND_ID,
+			COUNT(DISTINCT LP) AS VOLUME_DIS,
+			LEFT(CONVERT(VARCHAR(10), DATA_SP, 23), 4) AS YEAR
+		FROM
+			UTILIZATION
+		WHERE
+			STATUS = 'FILLED' AND								
+			LEFT(CONVERT(VARCHAR(10), DATA_SP, 23), 4) = '2025'
+			GROUP BY
+				VEND_ID, LEFT(CONVERT(VARCHAR(10), DATA_SP, 23), 4)
+		),
+	--rank calculation 
+		RANKED_VEND AS
+		(
+		SELECT
+			v.VEND_ID,
+			v.VOLUME_DIS,
+			CONCAT (p.CITY,', ',p.STREET) AS LOCATION_DET,
+			DENSE_RANK() OVER (ORDER BY v.VOLUME_DIS DESC) AS VEND_RANK
+		FROM	
+			VEND_DB p
+		INNER JOIN
+			VOL_COUNT_DIS v ON p.VEND_ID = v.VEND_ID
+		WHERE
+			p.NETWORK_TYPE = 'SINGLE_PAYMENT'
+		)
+		--summary table display top 10 selection
+		SELECT 
+			p.VEND_RANK AS RANK,
+			p.VEND_ID AS ID,
+			p.LOCATION_DET AS LOCATION,
+			p.VOLUME_DIS AS 'FILLED VOL'
+		FROM
+			RANKED_VEND p
+		WHERE
+			VEND_RANK <= 10;
 
-SELECT
-	p.VEND_ID,
-	COUNT (DISTINCT p.VEND_ID) AS VEND_AUTO_ACTIVE_COUNT,
-	v.VOLUME_DIS
-FROM	
-	VEND_TABLE p
-INNER JOIN
-	VOL_COUNT_DIS v ON p.VEND_ID = v.VEND_ID
-WHERE
-	p.NETWORK_TYPE = 'DUAL_PAYMENT' AND 
-	v.VOLUME_DIS > 0 AND
-	p.CITY = 'Example_City'
-GROUP BY
-	p.VEND_ID,
-	v.VOLUME_DIS
-ORDER BY
-	v.VOLUME_DIS DESC;
-
--- #1_002. most popular vending machines locations utilization limited to selected year, network, city and service type
-
-use BCOverview_VENDING;
-WITH VOL_COUNT_DIS AS
-(
-SELECT
-	VEND_ID,
-	COUNT(DISTINCT LP) AS VOLUME_DIS,
-	LEFT(CONVERT(VARCHAR(10), DATA_SP, 23), 4) AS YEAR
-FROM
-	UTILIZATION
-WHERE
-	STATUS = 'FILLED' AND								
-	LEFT(CONVERT(VARCHAR(10), DATA_SP, 23), 4) = '2025'
-GROUP BY
-	VEND_ID, LEFT(CONVERT(VARCHAR(10), DATA_SP, 23), 4)
-),
---rank calculation 
-RANKED_VEND AS
-(
-SELECT
-	v.VEND_ID,
-	v.VOLUME_DIS,
-	CONCAT (p.CITY,', ',p.STREET) AS LOCATION_DET,
-	DENSE_RANK() OVER (ORDER BY v.VOLUME_DIS DESC) AS VEND_RANK
-FROM	
-	VEND_DB p
-INNER JOIN
-	VOL_COUNT_DIS v ON p.VEND_ID = v.VEND_ID
-WHERE
-	p.NETWORK_TYPE = 'SINGLE_PAYMENT'
-)
---summary table display top 10 selection
-SELECT 
-	p.VEND_RANK AS RANK,
-	p.VEND_ID AS ID,
-	p.LOCATION_DET AS LOCATION,
-	p.VOLUME_DIS AS 'FILLED VOL'
-FROM
-	RANKED_VEND p
-WHERE
-	VEND_RANK <= 10;
+2.004:
+	--when mix AND and OR, SQL evaluates AND first, parenthesis override
+2.024:
+	--CTE syntax:
+	--CTE location before main query w. SELECT
+		WITH cte_name AS (
+  		SELECT ...
+  			FROM ...
+  			WHERE ...
+		)
+		SELECT *
+		FROM cte_name;
+	--CTEs exist only within their statement. Once the query finishes, they’re gone.
+	--descriptive names recommended ex. max_dep_salary
+	--ex. with condition applied
+		WITH dept_totals AS (
+    	SELECT
+    		department,
+    		sum(salary) AS total_salary
+		FROM
+			employee
+		GROUP BY department
+		)
+		SELECT
+			department,
+			total_salary
+		FROM dept_totals
+		WHERE total_salary > 150000 --condition applied
+		;
+2.025:
+	--multiple CTE syntax:
+	--separated by commas, !only one! "WITH" keyword at the beginning
+		WITH first_cte AS ( --what data do i need first
+			SELECT ...
+		),
+		second_cte AS (	--what calculation depends on that
+			SELECT ...
+			FROM first_cte
+			...
+		),
+		third_cte AS (	--what filtering or joining comes next
+			SELECT ...
+			FROM second_cte
+		...
+		)
+			SELECT *	--whats the final output
+		FROM third_cte;
+	--each CTE can reference any CTE defined before it, but not after. Order matters.

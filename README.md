@@ -1,7 +1,8 @@
 # Data Extraction & Analytics Engineering Toolbox
 
-This repository is a collection of code templates and reference patterns for data extraction, transformation, and measure design — spanning DAX, M, SQL and corporate grade analytics environment - Snowflake. 
-Rather than solving one specific business case, it documents the underlying engineering practices and how logic is organized across each layer of an analytics pipeline.
+This repository is a collection of code templates and reference patterns for data extraction, transformation, and measure design — spanning DAX, M, SQL, Python, and data infrastructure examples.
+
+Rather than solving one specific business case, it tracks training progress and documents the engineering practices behind how logic is organized across each layer of an analytics stack.
 
 ---
 
@@ -19,8 +20,8 @@ DAX patterns focused on scalable calculation design. The emphasis is on clear, s
 ### 📄[04-snowflake-memo.sql](./04-snowflake-memo.sql) — Cloud Data Warehousing
 Exploring the Snowflake capabilities as corporate cloud data platform, environment structure, role-based access and data governance fundamentals.
 
-### 📄[05-python-in-progress.md](./05-python-in-progress.md) — Data, ETL and LLM Ops basics
-Building foundations, while documenting baby steps and milestones for integrating the languege into my technology stack.
+### 📄[05-python-progress.md](./05-python-progress.md) — Data, ETL and LLM Ops basics
+Building foundations while documenting baby steps and milestones as I bring the language into my technology stack.
 
 ---
 
