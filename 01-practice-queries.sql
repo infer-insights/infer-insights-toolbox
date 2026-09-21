@@ -4,7 +4,7 @@
 SQL Toolbox - Examples of applied solutions
 
 
-### Environment Best Practise and code examples:
+### Environment Best Practices and code examples:
 1. T-SQL code examples 
 	1.001: active units machines selection
 	1.002: ranked retail unit with largest turnover selection
