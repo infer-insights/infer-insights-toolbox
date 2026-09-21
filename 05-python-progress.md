@@ -15,12 +15,12 @@ Learning progress, best practices and code examples:
 
 ==================================================
 
-1.001 
+1.001   
     # "code is read much more often than it is written", “readability counts”
   - Official PEP 8 coding style guidelines and industry standards for clean Python code:
     https://python.org/pep-0008/
 
-3.001 
+3.001   
     # Python & Pandas
   - import pandas as pd
   - df = pd.read_csv("file.csv"), .read_excel, .read_json;
@@ -33,7 +33,7 @@ Learning progress, best practices and code examples:
   - dtype strings (object in pandas)
   - df.describe() #numeric columns summary, df.describe(include='all')
 
-3.002  
+3.002    
     # working with columns
   - df.rename(columns={
       "first_col": "first col descr",
@@ -50,7 +50,7 @@ Learning progress, best practices and code examples:
   - dtypes #object, int64, float64, datetime64, bool
   --# numeric - carefull with "N/A" or "$1,200"
 
-3.003  
+3.003    
     # filtering
   - condition =  df["col"] == "object", result syntax: df[condition] #boolean indexing  
   - single line syntax: df[df["col"] == "object"]
@@ -61,7 +61,7 @@ Learning progress, best practices and code examples:
   - df[df['text'].str.contains(".", regex=False)] #handling: "." any character, "$" - string end
   - multi condition: df[(condition1) & (condition2)],  and: "&", or: "|", not "~"
 
-3.006  
+3.006    
     # combining conditions
 
 
