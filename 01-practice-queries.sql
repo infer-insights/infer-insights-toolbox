@@ -8,7 +8,7 @@ SQL Toolbox - Examples of applied solutions
 1. T-SQL code examples 
 	1.001: active units machines selection
 	1.002: ranked retail unit with largest turnover selection
-2. Training: Hands on challenge with "stratascratch.com" sql path, progress: (17% completed)
+2. Training: Hands on challenge with "stratascratch.com" sql path, progress: (19% completed)
     - # direct link to the training
     - https://www.stratascratch.com/learn/comprehensive-sql
 ============================================================
@@ -91,6 +91,22 @@ SQL Toolbox - Examples of applied solutions
 
 2.004:
 	--when mix AND and OR, SQL evaluates AND first, parenthesis override
+2.005:
+	--LIKE, wildcards
+	--'%' any character sequence incl. none, '_' exactly one
+	--TRIM(col_name) LIKE '___x' when data format exceeds expected character count
+	--LOWER(col_name) LIKE 'ab%' when case sensitive
+	--IN, NOT IN ('string1','string2'), work with txt and numbers
+	--carefull wtih NOT IN and NULLs - no rows if any contains NULL
+	--BETWEEN, NOT BETWEEN lower '>=' AND larger '=<'
+	--PostgreSQL BETWEEN '2019-03-01' AND '2019-04-01'::DATE - INTERVAL '1 day'
+	--	   MySQL BETWEEN '2019-03-01' AND DATE_SUB('2019-04-01', INTERVAL 1 DAY);
+	--	   T-SQL BETWEEN '2019-03-01' AND DATEADD(day, -1, '2019-04-01') - used in ex.
+	-- timestamp safer: date_col >= '2019-03-01' AND date_col < '2019-04-01'
+	-- AND/OR to mix the above		
+2.005:
+	--NULL handling
+
 2.024:
 	--CTE syntax:
 	--CTE location before main query w. SELECT
