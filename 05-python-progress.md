@@ -88,7 +88,7 @@ Learning progress, best practices and code examples:
   - .isin does not accept <=, >= inside the statement
   - df.loc[condition,["col2"]] #remember about [] to avoid index display
   - .between used with inclusive="right", "left", "both"
-  - .between df["col"].between(int1, int2) ex: orders[orders["total_order_cost"].between(50, 200, inclusive="right")
+  - .between df["col"].between(int1, int2) ex: orders[orders["total_order_cost"].between(50, 200, inclusive="right")]
   - .between with dates .between("yyyy-mm-dd", "yyyy-mm-dd")
   - negation ~ and !
   - "/" and "(" #() - better to keep the code readable and move to next row with indentation
