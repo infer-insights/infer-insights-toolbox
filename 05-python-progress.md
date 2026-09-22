@@ -25,7 +25,8 @@ Learning progress, best practices and code examples:
   - comments in python start with #
   - carefull when string exists in int column cause it supports addition and mutiplication
   - x.+tab - methods for the string
-  - x.split('i') i = list with example letter to split on
+  - x.split('i') i = list with example letter to split on  
+
 2.024   
     # string interpolation - variable into string
   - .format() print('string {}'.format('INSERTED')) = "string INSERTED"
@@ -33,7 +34,8 @@ Learning progress, best practices and code examples:
   - float formatting "{value:width.precision f}"
   - ex. print("The result{r:1.3f}".format(r=result))
   - newer method: print(f'{name} is {age} years old.') as of python 3.6
-  - https://pyformat.info/ #string formatting documentation 
+  - https://pyformat.info/ #string formatting documentation  
+  
 2.026   
     # lists
   - 
