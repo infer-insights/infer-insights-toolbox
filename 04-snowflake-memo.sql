@@ -10,7 +10,7 @@ PROJECT: SNOWFLAKE HANDS ON PRACTISE
     - https://learn.snowflake.com/en/courses/OD-ESS-DWW/ 
     - #completion certificate: 
     - https://achieve.snowflake.com/d0146fd6-5654-4a80-b788-73e5968cb30e#acc.2b4mRroM
-3. Training: Badge Two: Collaboration, Marketplace & Cost Estimation, progress: (33% completed)
+3. Training: Badge Two: Collaboration, Marketplace & Cost Estimation, progress: (48% completed)
     - #direct link to the training:
     - https://learn.snowflake.com/en/courses/OD-ESS-CMCW/
 4. 

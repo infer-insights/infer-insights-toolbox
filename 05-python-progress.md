@@ -6,10 +6,10 @@ PROJECT: Data Stack Integration with Python
 
 Learning progress, best practices and code examples:
 1. Syntax, data structures, resources and code best practices.  
-2. Training: The Complete Python Bootcamp From Zero to Hero in Python, progress: (26 of 170 completed)
+2. Training: The Complete Python Bootcamp From Zero to Hero in Python, progress: (29 of 170 completed)
   - #official repositories provided by the course instructor
   - https://github.com/Pierian-Data/Complete-Python-3-Bootcamp.git
-3. Training: Hands-on challenge with "stratascratch.com" Python path with Pandas library, progress: (11% completed).
+3. Training: Hands-on challenge with "stratascratch.com" Python path with Pandas library, progress: (14% completed).
   - #direct link to the training:
   - https://www.stratascratch.com/learn/comprehensive-python  
 
@@ -36,10 +36,30 @@ Learning progress, best practices and code examples:
   - newer method: print(f'{name} is {age} years old.') as of python 3.6
   - https://pyformat.info/ #string formatting documentation  
 
-2.024   
+2.026   
     # lists
-  - .
-
+  - separated by ',' - flexible with dtypes they can hold ['string', int, float]
+  - suports len(my_list), indexing mylist[0], slicing mylist[1:],
+  - support concatenation +
+  - support change new_list[0] = 'new_first_el'
+  - .append() - adding list element to the end
+  - .pop(), .pop(index_location) - removing list element fro the end
+  - .sort(), revers() sorting, reversing in place, actually sorts/reverses list
+  - .sort() sorted_list = my_list.sort() - this wont work
+  - nested_lis: [1,2,[3,4]]t my_list[0][1] gives [1,4]  
+  
+2.028   
+    # dictionaries - unordered key:value pairing
+  - my_dict = {'key1':'value1','key2':'value2'}
+  - my_dict['key1'] will show value1
+  - flexible, can hold key pairs with: 'string', list or my_dict
+  - nested keys syntax: my_dict['key']['nested_key'] or ['key'][index].method()
+  - adding dic_name['new_key'] = 'new_val', replacing dic_name['ex_key'] = 'new_val'
+  - .keys, .values, .items    
+  
+2.030   
+    # tuples
+    - .
 3.001   
     # Python & Pandas
   - import pandas as pd
@@ -55,14 +75,14 @@ Learning progress, best practices and code examples:
 
 3.002    
     # working with columns
-  - df.rename(columns={
-      "first_col": "first col descr",
-      "nxt_col": "nxt col descr"
+  - df.rename(columns={  
+      "first_col": "first col descr",  
+      "nxt_col": "nxt col descr"  
     })
-  - df = df.rename(...) #stored for later    
+  - df = df.rename(...) #needs saving to be stored for later    
   - df["col_calc"] = df["col"] /x # arithmetic operators: + - * /
-  - df["combined_text"] = (
-      df["text1"] + " " + df["text2"]
+  - df["combined_text"] = (  
+      df["text1"] + " " + df["text2"]  
     )
   - .astype(str): df["id"].astype(str) + " - " + df["name"] #numeric column int string
   - df[["col"]].drop_duplicates(), #multiple columns, combination checked
@@ -100,6 +120,23 @@ Learning progress, best practices and code examples:
   - "and" and "or" work on single True/False, for filtering use &/|
   - "&" is evaluated before "|"
 
+3.005    
+    # missing data handling
+  - 0 - zero, "" - empty, NaN - not known
+  - .isna(), .notna() - True for missing, syntax: missing = df["col"].isna()
+  - np.nan -  "something" but we dont know what it is,
+  - np.nan == np.nan    # False (not True!) 
+  - np.nan != np.nan    # True
+  - np.nan > 5          # False
+  - np.nan == "text"    # False, not string, treated as float
+  - string methods .str.contains(),.startswith() logic exlude NaN
+  - .fillna("") or combine filter with .isna() to keep
+  - df.isna().sum() - count, .mean()*100 - %, .any(axis=1).sum() - total rows
+  - .fillna({"column1":"string1", "column2":"string2"})
+  - .dropna(subset=["column"])  
 
+3.005    
+    # sorting values
+  - .sort_values
 
 
