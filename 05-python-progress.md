@@ -58,8 +58,27 @@ Learning progress, best practices and code examples:
   - .keys, .values, .items    
   
 2.030   
-    # tuples
-    - .
+    # tuples (a,b,c) tuples, instead of [a,b,c] - list
+    - similar to lists but immutable
+    - type() object type
+    - .count(''), .index()  
+2.031   
+    # sets - unordered collections of unique elements
+    - set(my_list) to get unique val from my_list
+2.032   
+    # Booleans bool capitalized True, False
+    - set(my_list) to ge
+2.033   
+    # I/O basic files
+    - %%writefile myfile.txt
+    - myfile = open('myfile.txt')
+    - myfile.read(), myfile.seek(0) - reset read
+    - pwd shows directory of current jupyter notebook location
+    - myfile.close() - best practice
+    - with open('myfile.txt') as my_file:
+          contents = my_file.read() 
+    - "shift + tab" opens function signature with parameters details 
+ 
 3.001   
     # Python & Pandas
   - import pandas as pd
@@ -135,7 +154,7 @@ Learning progress, best practices and code examples:
   - .fillna({"column1":"string1", "column2":"string2"})
   - .dropna(subset=["column"])  
 
-3.005    
+3.006    
     # sorting values, pattern: Filter → Sort → Limit → Select columns
   - .sort_values(["col1","col2"] ascending=[True, False]), defult asc
   - pd.to_datetime(df["column"]), convert first
@@ -155,7 +174,9 @@ Learning progress, best practices and code examples:
     o_cust = o[cust]          #filter
     top_3 = o_cust.nlargest(3, "total_order_cost") #limit
   - Filter → Sort → Limit → Select columns
-
+3.007    
+    # aggregation and grouping
+  - .
 
 
 
