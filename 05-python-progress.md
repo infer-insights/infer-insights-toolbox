@@ -58,29 +58,29 @@ Learning progress, best practices and code examples:
   - .keys, .values, .items    
   
 2.030   
-    # tuples (a,b,c) tuples, instead of [a,b,c] - list
-    - similar to lists but immutable
-    - type() object type
-    - .count(''), .index()  
+    # tuples (a,b,c) tuples, instead of [a,b,c] - list  
+    - similar to lists but immutable  
+    - type() object type  
+    - .count(''), .index()    
 
 2.031   
-    # sets - unordered collections of unique elements
-    - set(my_list) to get unique val from my_list  
+    # sets - unordered collections of unique elements  
+    - set(my_list) to get unique val from my_list    
 
 2.032   
-    # Booleans bool capitalized True, False
-    -  
+    # Booleans bool capitalized True, False  
+    -    
 
 2.033   
-    # I/O basic files
-    - %%writefile myfile.txt
-    - myfile = open('myfile.txt')
-    - myfile.read(), myfile.seek(0) - reset read
-    - pwd shows directory of current jupyter notebook location
-    - myfile.close() - best practice
-    - with open('myfile.txt') as my_file:
-          contents = my_file.read() 
-    - "shift + tab" opens function signature with parameters details 
+    # I/O basic files  
+    - %%writefile myfile.txt  
+    - myfile = open('myfile.txt')  
+    - myfile.read(), myfile.seek(0) - reset read  
+    - pwd shows directory of current jupyter notebook location  
+    - myfile.close() - best practice  
+    - with open('myfile.txt') as my_file:  
+          contents = my_file.read()   
+    - "shift + tab" opens function signature with parameters details   
  
 3.001   
     # Python & Pandas
