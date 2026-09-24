@@ -173,7 +173,8 @@ Learning progress, best practices and code examples:
     cust = o["cust_id"] == 15 #filter 
     o_cust = o[cust]          #filter
     top_3 = o_cust.nlargest(3, "total_order_cost") #limit
-  - Filter → Sort → Limit → Select columns
+  - Filter → Sort → Limit → Select columns  
+  
 3.007    
     # aggregation and grouping
   - .
