@@ -62,12 +62,15 @@ Learning progress, best practices and code examples:
     - similar to lists but immutable
     - type() object type
     - .count(''), .index()  
+
 2.031   
     # sets - unordered collections of unique elements
-    - set(my_list) to get unique val from my_list
+    - set(my_list) to get unique val from my_list  
+
 2.032   
     # Booleans bool capitalized True, False
-    - set(my_list) to ge
+    -  
+
 2.033   
     # I/O basic files
     - %%writefile myfile.txt
@@ -174,7 +177,7 @@ Learning progress, best practices and code examples:
     o_cust = o[cust]          #filter
     top_3 = o_cust.nlargest(3, "total_order_cost") #limit
   - Filter → Sort → Limit → Select columns  
-  
+
 3.007    
     # aggregation and grouping
   - .
