@@ -8,7 +8,7 @@ SQL Toolbox - Examples of applied solutions
 1. T-SQL code examples 
 	1.001: active units machines selection
 	1.002: ranked retail unit with largest turnover selection
-2. Training: Hands on challenge with "stratascratch.com" sql path, progress: (22% completed)
+2. Training: Hands on challenge with "stratascratch.com" sql path, progress: (28% completed)
     - # direct link to the training
     - https://www.stratascratch.com/learn/comprehensive-sql
 ============================================================
@@ -104,7 +104,7 @@ SQL Toolbox - Examples of applied solutions
 	--	   T-SQL BETWEEN '2019-03-01' AND DATEADD(day, -1, '2019-04-01') - used in ex.
 	-- timestamp safer: date_col >= '2019-03-01' AND date_col < '2019-04-01'
 	-- AND/OR to mix the above		
-2.005:
+2.006:
 	--NULL handling
 	--0 - zero, "" - empty, NULL - not known what it is
 	--NULL = NULL  -- Returns NULL (not true!)
@@ -116,6 +116,22 @@ SQL Toolbox - Examples of applied solutions
 		COALESCE(col1, col2, 'string') AS user_name - fills NULL wit string
 	--True and Unknown AND False = UNKNOWN will display nothing
 		WHERE requires TRUE, if NULL included - FALSE
+2.007:
+	--ORDER BY col_name or col number ASC - default, DESC
+	--col number relates to the list below SELECT, not table col. idx
+	--LENGTH() - Postgre, MySQL, Oracle, LEN() - T-SQL
+	--NULLs in ASC: first - MySQL, T-SQL, last - Postgre, Oracle
+	--Postgre control: ORDER BY col_name ASC NULLS FIRST/LAST
+2.008:
+	--LIMIT 
+	--SELECT TOP 10 (start) - T-SQL	
+	--LIMIT (end) 10 at the end of query- Postgre/MsSQL
+	--FETCH FIRST 10 ROWS ONLY (end) - after ORDER BY, Oracle
+	--OFFSET - skip rows
+		LIMIT 5 OFFSET 5 - PostgreSQL/MySQL
+		OFFSET 5 ROWS FETCH NEXT 5 ROWS ONLY Oracle/T-SQL
+
+
 
 2.024:
 	--CTE syntax:

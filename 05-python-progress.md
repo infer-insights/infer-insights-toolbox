@@ -9,7 +9,7 @@ Learning progress, best practices and code examples:
 2. Training: The Complete Python Bootcamp From Zero to Hero in Python, progress: (29 of 170 completed)
   - #official repositories provided by the course instructor
   - https://github.com/Pierian-Data/Complete-Python-3-Bootcamp.git
-3. Training: Hands-on challenge with "stratascratch.com" Python path with Pandas library, progress: (14% completed).
+3. Training: Hands-on challenge with "stratascratch.com" Python path with Pandas library, progress: (17% completed).
   - #direct link to the training:
   - https://www.stratascratch.com/learn/comprehensive-python  
 
@@ -136,7 +136,26 @@ Learning progress, best practices and code examples:
   - .dropna(subset=["column"])  
 
 3.005    
-    # sorting values
-  - .sort_values
+    # sorting values, pattern: Filter → Sort → Limit → Select columns
+  - .sort_values(["col1","col2"] ascending=[True, False]), defult asc
+  - pd.to_datetime(df["column"]), convert first
+  - .sort_values with condition df[df["col"] > condition].sort_values("col")
+  - o_f = o[o["total_order_cost"] > 50].sort_values("total_order_cost", ascending=False)
+    o=orders
+    above_50 = o["order_cost"] > 50
+    o_f = o[above_50]
+    o_f.sort_values("order_cost", ascending = False)
+  - tw["name_len"] = tw["first_name"].str.len() #will add column if not in dataframe
+  - df.sort_values("first_name", key=lambda c: c.str.len())
+  - .head(), .tail(), .sort_values("").head(int)
+  - .nlargest, .nsmallest(int,"col")
+  - top_3 = o[o["cust_id"] == 15].nlargest(3, "total_order_cost")
+    o=orders
+    cust = o["cust_id"] == 15 #filter 
+    o_cust = o[cust]          #filter
+    top_3 = o_cust.nlargest(3, "total_order_cost") #limit
+  - Filter → Sort → Limit → Select columns
+
+
 
 
