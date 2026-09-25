@@ -75,9 +75,9 @@ Learning progress, best practices and code examples:
     # sets - unordered collections of unique elements  
   - set(my_list) to get unique val from my_list    
 
-2.032   
+2.032  
     # Booleans bool capitalized True, False  
-  -    
+  - comments 
 
 2.033   
     # I/O basic files  
