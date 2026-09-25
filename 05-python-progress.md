@@ -94,10 +94,13 @@ Learning progress, best practices and code examples:
       'r+'- reading and writing
       'w+' - writing and reaidng (overwrites ex files or cr new f.)
 
-
 2.034   
-    # I/O basic files  
-  - %%writefile myfile.txt
+    # base subject  
+  - comment
+
+2.035   
+    # base subject  
+  - comment
 
 3.001   
     # Python & Pandas
