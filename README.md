@@ -8,7 +8,7 @@ Rather than solving one specific business case, it tracks training progress and 
 
 ## Repository Components
 
-### 📄[01-practis-queries.sql](./01-practise-queries.sql) — Relational Data Extraction
+### 📄[01-practice-queries.sql](./01-practice-queries.sql) — Relational Data Extraction
 Patterns for extracting data and pre-calculating measures directly at the SQL layer, ahead of the visualization tool — keeping the reporting layer lighter and moving logic closer to the source.
 
 ### 📄[02-power-query-etl-lib.m](./02-power-query-etl-lib.pq) — Power Query / ETL

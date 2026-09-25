@@ -9,7 +9,7 @@ Learning progress, best practices and code examples:
 2. Training: The Complete Python Bootcamp From Zero to Hero in Python, progress: (29 of 170 completed)
   - #official repositories provided by the course instructor
   - https://github.com/Pierian-Data/Complete-Python-3-Bootcamp.git
-3. Training: Hands-on challenge with "stratascratch.com" Python path with Pandas library, progress: (17% completed).
+3. Training: Hands-on challenge with "stratascratch.com" Python path with Pandas library, progress: (19% completed).
   - #direct link to the training:
   - https://www.stratascratch.com/learn/comprehensive-python  
 
@@ -18,7 +18,15 @@ Learning progress, best practices and code examples:
 1.001    
     # "code is read much more often than it is written", “readability counts”  
   - Official PEP 8 coding style guidelines and industry standards for clean Python code:  
-  - https://python.org/pep-0008/
+  - https://python.org/pep-0008/  
+
+1.002    
+    # daily practice resources  
+  - http://codingbat.com/python #basic practice
+  - https://projecteuler.net/archives #More Mathematical (and Harder) Practice
+  - http://www.codeabbey.com/index/task_list #List of Practice Problems
+  - https://www.reddit.com/r/dailyprogrammer #A SubReddit Devoted to Daily Practice Problems:
+  - http://www.pythonchallenge.com/ #tricky with very few hints
 
 2.022   
     # String properties and methods
@@ -59,41 +67,50 @@ Learning progress, best practices and code examples:
   
 2.030   
     # tuples (a,b,c) tuples, instead of [a,b,c] - list  
-    - similar to lists but immutable  
-    - type() object type  
-    - .count(''), .index()    
+  - similar to lists but immutable  
+  - type() object type  
+  - .count(''), .index()    
 
 2.031   
     # sets - unordered collections of unique elements  
-    - set(my_list) to get unique val from my_list    
+  - set(my_list) to get unique val from my_list    
 
 2.032   
     # Booleans bool capitalized True, False  
-    -    
+  -    
 
 2.033   
     # I/O basic files  
-    - %%writefile myfile.txt  
-    - myfile = open('myfile.txt')  
-    - myfile.read(), myfile.seek(0) - reset read  
-    - pwd shows directory of current jupyter notebook location  
-    - myfile.close() - best practice  
-    - with open('myfile.txt') as my_file:  
+  - %%writefile myfile.txt  
+  - myfile = open('myfile.txt')  
+  - myfile.read(), myfile.seek(0) - reset read  
+  - pwd shows directory of current jupyter notebook location  
+  - myfile.close() - best practice  
+  - with open('myfile.txt', mode='r') as my_file:  
           contents = my_file.read()   
-    - "shift + tab" opens function signature with parameters details   
- 
+  - "shift + tab" opens function signature with parameters details
+  -.mode='r'-read only, 'w' write only (will overwrite or create new!)
+      'a'-appned only (will add on to files)
+      'r+'- reading and writing
+      'w+' - writing and reaidng (overwrites ex files or cr new f.)
+
+
+2.034   
+    # I/O basic files  
+  - %%writefile myfile.txt
+
 3.001   
     # Python & Pandas
-  - import pandas as pd
-  - df = pd.read_csv("file.csv"), .read_excel, .read_json;
-  - df = pd.read_sql("SELECT * FROM table", connection);
-  - df = df[["column1","column2"]], df - whole table;
-  - df['col'] Seriex, df[['col']] DataFrame
-  - df.head(), df.tail();
-  - df.shape #rows and columns, df.columns, df.dtypes, 
-  - df.info() #columns, types, non-null counts
-  - dtype strings (object in pandas)
-  - df.describe() #numeric columns summary, df.describe(include='all')
+   - import pandas as pd
+   - df = pd.read_csv("file.csv"), .read_excel, .read_json;
+   - df = pd.read_sql("SELECT * FROM table", connection);
+   - df = df[["column1","column2"]], df - whole table;
+   - df['col'] Seriex, df[['col']] DataFrame
+   - df.head(), df.tail();
+   - df.shape #rows and columns, df.columns, df.dtypes, 
+   - df.info() #columns, types, non-null counts
+   - dtype strings (object in pandas)
+   - df.describe() #numeric columns summary, df.describe(include='all')
 
 3.002    
     # working with columns
@@ -179,8 +196,15 @@ Learning progress, best practices and code examples:
   - Filter → Sort → Limit → Select columns  
 
 3.007    
-    # aggregation and grouping
-  - .
+    # aggregation 
+  - len() #total rows
+  - .count() #not null per column, syntax: df["col"].count()
+  - .nunique(), df["col"].nunique() #unique in col
+  - .sum(), ignores NaN
+  - .mean(), ignores NaN,
+  - .agg(["sum", "mean", "min", "max"]) - multiple aggr
+  - .describe() = .agg() with all stat
+  - .T transpose into rows
 
 
 
