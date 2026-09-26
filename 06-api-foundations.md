@@ -1,6 +1,6 @@
 ==================================================  
-"Integration is the ultimate competitive advantage for retail leaders."    
-PROJECT: Retail Data integration basics and best practices with APIs
+"We are all connected in some way", "Integration is the ultimate competitive advantage for retail leaders."    
+PROJECT: Core concepts and hands-on examples for working with APIs — authentication, requests, and data extraction.
 
 
 
@@ -17,7 +17,4 @@ Learning progress, best practices and code examples:
 
 ==================================================
 
-2.001    
-    # "best way to start learning is start today”  
-  - comments:  
-  -   
+ 
