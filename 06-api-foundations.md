@@ -1,0 +1,23 @@
+==================================================  
+"Integration is the ultimate competitive advantage for retail leaders."    
+PROJECT: Retail Data integration basics and best practices with APIs
+
+
+
+Learning progress, best practices and code examples:
+1. Syntax, data structures, resources and code best practices.  
+2. Training: PI and Web serviced Introduction - Nate Ross [Udemy], progress: (2 of 57 completed)
+  - #direct link to the training:
+  - https://www.udemy.com/course/api-and-web-service-introduction
+3. Training: Hands-on challenge with salesforce, Rank: HIKER, progress: (1 Modules).
+  - #direct link to the training:
+  - https://trailhead.salesforce.com
+  - Badges/Modules completed:
+  - https://www.salesforce.com/trailblazer/robert-posiadala-rp1
+
+==================================================
+
+2.001    
+    # "best way to start learning is start today”  
+  - comments:  
+  -   

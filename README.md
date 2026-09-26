@@ -23,6 +23,9 @@ Exploring the Snowflake capabilities as corporate cloud data platform, environme
 ### 📄[05-python-progress.md](./05-python-progress.md) — Data, ETL and LLM Ops basics
 Building foundations while documenting baby steps and milestones as I bring the language into my technology stack.
 
+### 📄[06-api-foundations.md](./06-api-foundations.md) — Data integration with APIs
+Learning data integration through Salesforce's Trailhead, the industry-leading CRM platform.
+
 ---
 
 ## Engineering Principles
